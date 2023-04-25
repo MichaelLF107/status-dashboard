@@ -21,10 +21,11 @@ model Performance {
   id        Int      @id @default(autoincrement())
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
-  queries   Int
   loadAvg   Float
   memUsed   Float
+  memFree   Float
   cpuUsed   Float
+  cpuFree   Float
 }
 
 model UsersStatus {
