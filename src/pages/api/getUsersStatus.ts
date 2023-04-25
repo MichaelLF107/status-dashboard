@@ -11,6 +11,11 @@ export default async function handler(
     req: NextApiRequest,
     res: NextApiResponse<Data>
 ) {
-    const usersStatus = await prisma.usersStatus.findMany()
+    const usersStatus = await prisma.usersStatus.findMany({
+        take: 7,
+        orderBy: {
+            updatedAt: 'asc'
+        }
+    })
     res.status(200).json({usersStatus, error: null})
 }
