@@ -1,0 +1,37 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Traffic {
+  id        Int      @id @default(autoincrement())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  method    String
+  path      String
+  status    Int
+  duration  Int
+}
+
+model Performance {
+  id        Int      @id @default(autoincrement())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  queries   Int
+  loadAvg   Float
+  memUsed   Float
+  cpuUsed   Float
+}
+
+model UsersStatus {
+  id        Int      @id @default(autoincrement())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  users     Int
+  guests    Int
+  bots      Int
+}

@@ -1,0 +1,31 @@
+-- CreateTable
+CREATE TABLE "Traffic" (
+    "id" INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+    "createdAt" DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    "updatedAt" DATETIME NOT NULL,
+    "method" TEXT NOT NULL,
+    "path" TEXT NOT NULL,
+    "status" INTEGER NOT NULL,
+    "duration" INTEGER NOT NULL
+);
+
+-- CreateTable
+CREATE TABLE "Performance" (
+    "id" INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+    "createdAt" DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    "updatedAt" DATETIME NOT NULL,
+    "queries" INTEGER NOT NULL,
+    "loadAvg" REAL NOT NULL,
+    "memUsed" REAL NOT NULL,
+    "cpuUsed" REAL NOT NULL
+);
+
+-- CreateTable
+CREATE TABLE "UsersStatus" (
+    "id" INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+    "createdAt" DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    "updatedAt" DATETIME NOT NULL,
+    "users" INTEGER NOT NULL,
+    "guests" INTEGER NOT NULL,
+    "bots" INTEGER NOT NULL
+);
