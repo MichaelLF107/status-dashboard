@@ -36,7 +36,7 @@ export default function UsersStatus() {
     })
 
     return (
-        <Card title={<Title />} subTitle={<Subtitle />} path='/usersStatus'>
+        <Card title={<Title />} subTitle={<Subtitle />} path='/users-status'>
             {error && <div>Failed to load</div>}
             {!error && !usersStatus && <div>Loading...</div>}
             {usersStatus && (
