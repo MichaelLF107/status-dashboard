@@ -19,8 +19,6 @@ export default function Traffic() {
         }
     })
 
-    console.log(traffic)
-
     return (
         <div className={styles.card}>
             <h2>Traffic</h2>
