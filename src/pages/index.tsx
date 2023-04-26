@@ -2,6 +2,7 @@ import Head from 'next/head'
 import styles from '@/styles/Home.module.css'
 import UsersStatus from '@/components/UsersStatus/UsersStatus'
 import Performance from '@/components/Performance/Performance'
+import Traffic from '@/components/Traffic/Traffic'
 
 export default function Home(props) {
   return (
@@ -17,6 +18,7 @@ export default function Home(props) {
         <div className={styles.grid}>
           <UsersStatus />
           <Performance />
+          <Traffic />
         </div>
       </main>
     </>
