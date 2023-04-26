@@ -1,5 +1,6 @@
 import styles from './styles.module.css'
 import Link from 'next/link'
+import { Tooltip } from '@mui/material'
 
 interface CardProps {
     title: React.ReactNode
@@ -14,7 +15,9 @@ export default function Card({ title, subTitle, path, children }: CardProps) {
             {path ? (
                 <Link href={path}>
                     <div className={styles.header}>
-                        <span className={styles.title}>{title}</span>
+                        <Tooltip title='Click to view more details'>
+                            <span className={styles.title}>{title}</span>
+                        </Tooltip>
                         <span className={styles.subtitle}>{subTitle}</span>
                     </div>
                 </Link>
