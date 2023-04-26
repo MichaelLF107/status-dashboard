@@ -1,15 +1,28 @@
 import useSwr from 'swr'
 import { AreaChart, Area, CartesianGrid, XAxis, YAxis, Tooltip } from 'recharts'
-import styles from './styles.module.css'
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward'
 import SpeedIcon from '@mui/icons-material/Speed'
-import Link from 'next/link'
+import { formatDate } from '@/utils/utils'
+import Card from '../Card/Card'
 
 const fetcher = (url: string) => fetch(url).then((res) => res.json())
 
-const formatDate = (date: string) => {
-    const d = new Date(date)
-    return `${d.getMonth() + 1}/${d.getDate()}`
+function Title() {
+    return (
+        <>
+            Performance
+            <ArrowForwardIcon fontSize='inherit' />
+        </>
+    )
+}
+
+function Subtitle() {
+    return (
+        <>
+            <SpeedIcon fontSize='inherit' />
+            CPU and Memory
+        </>
+    )
 }
 
 export default function Performance() {
@@ -23,20 +36,7 @@ export default function Performance() {
     })
 
     return (
-        <div className={styles.card}>
-            <Link href='/performance'>
-                <div className={styles.header}>
-                    <span className={styles.title}>
-                        Performance
-                        <ArrowForwardIcon fontSize='inherit' />
-                    </span>
-                    <span className={styles.subtitle}>
-                        <SpeedIcon fontSize='inherit' />
-                        CPU and Memory
-                    </span>
-                </div>
-            </Link>
-            <hr className={styles.hr} />
+        <Card title={<Title />} subTitle={<Subtitle />} path='/performance'>
             {error && <div>Failed to load</div>}
             {!error && !performance && <div>Loading...</div>}
             {performance && (
@@ -64,6 +64,6 @@ export default function Performance() {
                     <Tooltip />
                 </AreaChart>
             )}
-        </div>
+        </Card>
     )
 }

@@ -1,15 +1,28 @@
 import useSwr from 'swr'
 import { AreaChart, Area, CartesianGrid, XAxis, YAxis, Tooltip } from 'recharts'
-import styles from './styles.module.css'
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward'
 import GroupIcon from '@mui/icons-material/Group'
-import Link from 'next/link'
+import { formatDate } from '@/utils/utils'
+import Card from '../Card/Card'
 
 const fetcher = (url: string) => fetch(url).then((res) => res.json())
 
-const formatDate = (date: string) => {
-    const d = new Date(date)
-    return `${d.getMonth() + 1}/${d.getDate()}`
+function Title() {
+    return (
+        <>
+            Users Status
+            <ArrowForwardIcon fontSize='inherit' />
+        </>
+    )
+}
+
+function Subtitle() {
+    return (
+        <>
+            <GroupIcon fontSize='inherit' />
+            Users and Guests
+        </>
+    )
 }
 
 export default function UsersStatus() {
@@ -23,20 +36,7 @@ export default function UsersStatus() {
     })
 
     return (
-        <div className={styles.card}>
-            <Link href='/users-status'>
-                <div className={styles.header}>
-                    <span className={styles.title}>
-                        Users Status
-                        <ArrowForwardIcon fontSize='inherit' />
-                    </span>
-                    <span className={styles.subtitle}>
-                        <GroupIcon fontSize='inherit' />
-                        Users and Guests
-                    </span>
-                </div>
-            </Link>
-            <hr className={styles.hr} />
+        <Card title={<Title />} subTitle={<Subtitle />} path='/usersStatus'>
             {error && <div>Failed to load</div>}
             {!error && !usersStatus && <div>Loading...</div>}
             {usersStatus && (
@@ -59,6 +59,6 @@ export default function UsersStatus() {
                     <Tooltip />
                 </AreaChart>
             )}
-        </div>
+        </Card>
     )
 }

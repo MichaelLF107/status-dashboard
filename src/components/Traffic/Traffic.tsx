@@ -1,15 +1,28 @@
 import useSwr from 'swr'
 import { AreaChart, Area, CartesianGrid, XAxis, YAxis, Tooltip } from 'recharts'
-import styles from './styles.module.css'
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward'
 import AdsClickIcon from '@mui/icons-material/AdsClick'
-import Link from 'next/link'
+import { formatDate } from '@/utils/utils'
+import Card from '../Card/Card'
 
 const fetcher = (url: string) => fetch(url).then((res) => res.json())
 
-const formatDate = (date: string) => {
-    const d = new Date(date)
-    return `${d.getMonth() + 1}/${d.getDate()}`
+function Title() {
+    return (
+        <>
+            Traffic
+            <ArrowForwardIcon fontSize='inherit' />
+        </>
+    )
+}
+
+function Subtitle() {
+    return (
+        <>
+            <AdsClickIcon fontSize='inherit' />
+            Gets, Posts, Deletes, and Patches
+        </>
+    )
 }
 
 export default function Traffic() {
@@ -23,20 +36,7 @@ export default function Traffic() {
     })
 
     return (
-        <div className={styles.card}>
-            <Link href='/traffic'>
-                <div className={styles.header}>
-                    <span className={styles.title}>
-                        Traffic
-                        <ArrowForwardIcon fontSize='inherit' />
-                    </span>
-                    <span className={styles.subtitle}>
-                        <AdsClickIcon fontSize='inherit' />
-                        Gets, Posts, Deletes, and Patches
-                    </span>
-                </div>
-            </Link>
-            <hr className={styles.hr} />
+        <Card title={<Title />} subTitle={<Subtitle />} path='/traffic'>
             {error && <div>Failed to load</div>}
             {!error && !traffic && <div>Loading...</div>}
             {traffic && (
@@ -69,6 +69,6 @@ export default function Traffic() {
                     <Tooltip />
                 </AreaChart>
             )}
-        </div>
+        </Card>
     )
 }
