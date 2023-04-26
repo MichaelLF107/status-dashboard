@@ -11,10 +11,10 @@ model Traffic {
   id        Int      @id @default(autoincrement())
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
-  method    String
-  path      String
-  status    Int
-  duration  Int
+  gets      Int
+  posts     Int
+  deletes   Int
+  patch     Int
 }
 
 model Performance {
