@@ -3,6 +3,7 @@ import { AreaChart, Area, CartesianGrid, XAxis, YAxis, Tooltip } from 'recharts'
 import styles from './styles.module.css'
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward'
 import GroupIcon from '@mui/icons-material/Group'
+import Link from 'next/link'
 
 const fetcher = (url: string) => fetch(url).then((res) => res.json())
 
@@ -23,16 +24,18 @@ export default function UsersStatus() {
 
     return (
         <div className={styles.card}>
-            <div className={styles.header}>
-                <span className={styles.title}>
-                    Users Status
-                    <ArrowForwardIcon fontSize='inherit' />
-                </span>
-                <span className={styles.subtitle}>
-                    <GroupIcon fontSize='inherit' />
-                    Users and Guests
-                </span>
-            </div>
+            <Link href='/users-status'>
+                <div className={styles.header}>
+                    <span className={styles.title}>
+                        Users Status
+                        <ArrowForwardIcon fontSize='inherit' />
+                    </span>
+                    <span className={styles.subtitle}>
+                        <GroupIcon fontSize='inherit' />
+                        Users and Guests
+                    </span>
+                </div>
+            </Link>
             <hr className={styles.hr} />
             {error && <div>Failed to load</div>}
             {!error && !usersStatus && <div>Loading...</div>}
