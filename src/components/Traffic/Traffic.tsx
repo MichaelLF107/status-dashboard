@@ -1,6 +1,8 @@
 import useSwr from 'swr'
 import { AreaChart, Area, CartesianGrid, XAxis, YAxis, Tooltip } from 'recharts'
 import styles from './styles.module.css'
+import ArrowForwardIcon from '@mui/icons-material/ArrowForward'
+import AdsClickIcon from '@mui/icons-material/AdsClick'
 
 const fetcher = (url: string) => fetch(url).then((res) => res.json())
 
@@ -21,7 +23,17 @@ export default function Traffic() {
 
     return (
         <div className={styles.card}>
-            <h2>Traffic</h2>
+            <div className={styles.header}>
+                <span className={styles.title}>
+                    Traffic
+                    <ArrowForwardIcon fontSize='inherit' />
+                </span>
+                <span className={styles.subtitle}>
+                    <AdsClickIcon fontSize='inherit' />
+                    Gets, Posts, Deletes, and Patches
+                </span>
+            </div>
+            <hr className={styles.hr} />
             {error && <div>Failed to load</div>}
             {!error && !traffic && <div>Loading...</div>}
             {traffic && (

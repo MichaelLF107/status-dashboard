@@ -1,6 +1,8 @@
 import useSwr from 'swr'
 import { AreaChart, Area, CartesianGrid, XAxis, YAxis, Tooltip } from 'recharts'
 import styles from './styles.module.css'
+import ArrowForwardIcon from '@mui/icons-material/ArrowForward'
+import SpeedIcon from '@mui/icons-material/Speed'
 
 const fetcher = (url: string) => fetch(url).then((res) => res.json())
 
@@ -23,7 +25,17 @@ export default function Performance() {
 
     return (
         <div className={styles.card}>
-            <h2>Performance</h2>
+            <div className={styles.header}>
+                <span className={styles.title}>
+                    Performance
+                    <ArrowForwardIcon fontSize='inherit' />
+                </span>
+                <span className={styles.subtitle}>
+                    <SpeedIcon fontSize='inherit' />
+                    CPU and Memory
+                </span>
+            </div>
+            <hr className={styles.hr} />
             {error && <div>Failed to load</div>}
             {!error && !performance && <div>Loading...</div>}
             {performance && (
