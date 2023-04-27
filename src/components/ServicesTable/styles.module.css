@@ -1,0 +1,22 @@
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    border-spacing: 0;
+    border-radius: 5px;
+}
+
+.tableHead {
+    background-color: #1e262f;
+    color: #fff;
+}
+
+.headCell {
+    padding: 1rem;
+    text-align: left;
+}
+
+.tableCell {
+    padding: 1rem;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}

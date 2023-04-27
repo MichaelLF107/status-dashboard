@@ -3,6 +3,7 @@ import styles from '@/styles/Home.module.css'
 import UsersStatus from '@/components/UsersStatus/UsersStatus'
 import Performance from '@/components/Performance/Performance'
 import Traffic from '@/components/Traffic/Traffic'
+import ServicesStatus from '@/components/ServicesStatus/ServicesStatus'
 
 export default function Home(props) {
   return (
@@ -19,6 +20,7 @@ export default function Home(props) {
           <UsersStatus />
           <Performance />
           <Traffic />
+          <ServicesStatus />
         </div>
       </main>
     </>
