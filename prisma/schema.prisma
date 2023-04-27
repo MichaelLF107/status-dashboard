@@ -36,3 +36,14 @@ model UsersStatus {
   guests    Int
   bots      Int
 }
+
+model ServiceStatus {
+  id        Int      @id @default(autoincrement())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  status    String
+  uptime    Int
+  version   String
+  name      String
+  port      Int
+}
