@@ -77,36 +77,62 @@ export default function PerformancePage(props) {
                             {error && <div>Failed to load</div>}
                             {!error && !performance && <div>Loading...</div>}
                             {performance && (
-                                <ReactSpeedometer
-                                    maxValue={100}
-                                    value={selectedCpuDay.value}
-                                    needleColor='red'
-                                    startColor='green'
-                                    segments={10}
-                                    endColor='red'
-                                    textColor='white'
-                                    height={200}
-                                    currentValueText='CPU Used: ${value}%'
-                                    needleHeightRatio={0.75}
-                                />
+                                <>
+                                    <ReactSpeedometer
+                                        maxValue={100}
+                                        value={selectedCpuDay.value}
+                                        needleColor='red'
+                                        startColor='green'
+                                        segments={10}
+                                        endColor='red'
+                                        textColor='white'
+                                        height={200}
+                                        currentValueText='CPU Used: ${value}%'
+                                        needleHeightRatio={0.75}
+                                    />
+                                    <Select
+                                        value={cpuDay}
+                                        onChange={(e) => setCpuDay(e.target.value)}
+                                        style={{ width: '100%', marginTop: '1rem' }}
+                                    >
+                                        {performance.map((status: any) => (
+                                            <MenuItem key={status.updatedAt} value={status.updatedAt}>
+                                                {status.updatedAt}
+                                            </MenuItem>
+                                        ))}
+                                    </Select>
+                                </>
                             )}
                         </Card>
                         <Card title='Memory' subTitle='Memory Usage' path={null}>
                             {error && <div>Failed to load</div>}
                             {!error && !performance && <div>Loading...</div>}
                             {performance && (
-                                <ReactSpeedometer
-                                    maxValue={100}
-                                    value={selectedMemoryDay.value}
-                                    needleColor='red'
-                                    startColor='green'
-                                    segments={10}
-                                    endColor='red'
-                                    textColor='white'
-                                    height={200}
-                                    currentValueText='Memory Used: ${value}%'
-                                    needleHeightRatio={0.75}
-                                />
+                                <>
+                                    <ReactSpeedometer
+                                        maxValue={100}
+                                        value={selectedMemoryDay.value}
+                                        needleColor='red'
+                                        startColor='green'
+                                        segments={10}
+                                        endColor='red'
+                                        textColor='white'
+                                        height={200}
+                                        currentValueText='Memory Used: ${value}%'
+                                        needleHeightRatio={0.75}
+                                    />
+                                    <Select
+                                        value={memoryDay}
+                                        onChange={(e) => setMemoryDay(e.target.value)}
+                                        style={{ width: '100%', marginTop: '1rem' }}
+                                    >
+                                        {performance.map((status: any) => (
+                                            <MenuItem key={status.updatedAt} value={status.updatedAt}>
+                                                {status.updatedAt}
+                                            </MenuItem>
+                                        ))}
+                                    </Select>
+                                </>
                             )}
                         </Card>
                     </div>
