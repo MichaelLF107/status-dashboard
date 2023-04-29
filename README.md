@@ -13,7 +13,7 @@ This project is a dashboard for displaying information from servers, including t
 
 ## Requirements
 
-- Latest version on Node.js
+- Latest version of Node.js
 - NPM or Yarn package manager
 - Prisma CLI
 
